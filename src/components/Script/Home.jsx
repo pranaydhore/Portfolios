@@ -11,24 +11,31 @@ import {
 } from 'lucide-react';
 import '../Style/Home.css';
 
-
-
 const Home = () => {
   const [text, setText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const fullText = "Full Stack Developer";
+  const titles = ["Full Stack Developer", "Data Analyst "];
+  const [titleIndex, setTitleIndex] = useState(0);
 
   useEffect(() => {
     let i = 0;
-    const timer = setInterval(() => {
-      if (i < fullText.length) {
+    let typing = true;
+
+    const typeInterval = setInterval(() => {
+      const fullText = titles[titleIndex];
+      if (typing) {
         setText(fullText.slice(0, i + 1));
         i++;
-        
+        if (i === fullText.length) typing = false;
       } else {
-        clearInterval(timer);
+        setText(fullText.slice(0, i - 1));
+        i--;
+        if (i === 0) {
+          typing = true;
+          setTitleIndex((prev) => (prev + 1) % titles.length);
+        }
       }
-    }, 100);
+    }, 200); // typing speed
 
     // Cursor blinking
     const cursorBlink = setInterval(() => {
@@ -36,10 +43,10 @@ const Home = () => {
     }, 500);
 
     return () => {
-      clearInterval(timer);
+      clearInterval(typeInterval);
       clearInterval(cursorBlink);
     };
-  }, []);
+  }, [titleIndex]);
 
   return (
     <section className="home-section">
@@ -88,22 +95,22 @@ const Home = () => {
 
             {/* Social Links */}
             <div className="social-links">
-              <a href="https://github.com" className="social-link github">
+              <a href="https://github.com/pranaydhore" className="social-link github">
                 <Github size={20} />
               </a>
-              <a href="https://linkedin.com" className="social-link linkedin">
+              <a href="https://linkedin.com/in/pranaydhore" className="social-link linkedin">
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:john@example.com" className="social-link email">
+              <a href="pranaydhore03@gmail.com" className="social-link email">
                 <Mail size={20} />
               </a>
-              <a href="https://twitter.com" className="social-link twitter">
+              <a href="https://twitter.com/pranaydhore" className="social-link twitter">
                 <Twitter size={20} />
               </a>
-              <a href="https://instagram.com" className="social-link instagram">
+              <a href="https://x.com/PranayDhore3" className="social-link instagram">
                 <Instagram size={20} />
               </a>
-              <a href="https://youtube.com" className="social-link youtube">
+              <a href="www.youtube.com/@PranayDhore" className="social-link youtube">
                 <Youtube size={20} />
               </a>
             </div>
