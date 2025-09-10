@@ -88,22 +88,22 @@ const Home = () => {
 
             {/* Social Links */}
             <div className="social-links">
-              <a href="https://github.com" className="social-link github">
+              <a href="https://github.com/pranaydhore" className="social-link github">
                 <Github size={20} />
               </a>
-              <a href="https://linkedin.com" className="social-link linkedin">
+              <a href="https://linkedin.com/in/pranaydhore" className="social-link linkedin">
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:john@example.com" className="social-link email">
+              <a href="pranaydhore03@gmail.com" className="social-link email">
                 <Mail size={20} />
               </a>
-              <a href="https://twitter.com" className="social-link twitter">
+              <a href="https://x.com/PranayDhore3" className="social-link twitter">
                 <Twitter size={20} />
               </a>
               <a href="https://instagram.com" className="social-link instagram">
                 <Instagram size={20} />
               </a>
-              <a href="https://youtube.com" className="social-link youtube">
+              <a href="https://youtube.com/@PranayDhore" className="social-link youtube">
                 <Youtube size={20} />
               </a>
             </div>
